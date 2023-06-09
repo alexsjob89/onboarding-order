@@ -1,14 +1,8 @@
-import {Box,LinearProgress} from "@mui/material"
 import React from 'react'
-import {ProgressBarWrapper} from './styled/ProgressBar.styles'
 
-function ProgrssBar({progress}) {
+function ProgrssBar() {
   return (
-   <ProgressBarWrapper>
-    <Box width={"100%"}>
-   <LinearProgress variant='determinate' value={progress}/>
-    </Box>
-   </ProgressBarWrapper>
+    <div style={{border: "1px solid black", width: "30rem", height: "30rem"}}>ProgrssBar</div>
   )
 }
 

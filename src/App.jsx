@@ -1,15 +1,32 @@
+import axios from "axios";
+import React,{useState} from "react";
 import './App.css';
-import Onboarding from './components/Onboarding';
-import ProgrssBar from './components/ProgrssBar';
 
 
-function App() {
-  return (
-    <div className="App">
-<Onboarding/>
-<ProgrssBar progress={33.3333}/>
-    </div>
-  );
+function App({userId}) {
+const [user, setUser] = useState(null)
+const
+
+useEffect(() => {
+  const fetchUser = async () => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    setUser(response.data)
+  }
+
+  fetchUser();
+}, [userId]);
+
+if (!user) return null
+
+
+
+return (
+  <div>
+    <h2>{user.name}</h2>
+      <p>Email: {user.email}</p>
+  </div>
+)
+
 }
 
 export default App;
